@@ -41,4 +41,13 @@ public class Customer {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isActive() {
+        return this.active;
+    }
 }
