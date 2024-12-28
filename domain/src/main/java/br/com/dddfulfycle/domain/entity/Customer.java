@@ -3,7 +3,7 @@ package br.com.dddfulfycle.domain.entity;
 public class Customer {
     private String id;
     private String name;
-    private String address;
+    private Address address;
 
     private boolean active;
 
@@ -14,7 +14,7 @@ public class Customer {
     }
 
     private void validate(){
-        if(this.id == null || id.isBlank()){
+        if(this.id == null || this.id.isBlank()){
             throw new RuntimeException("Id is required");
         }
         if (this.name == null || this.name.isBlank()){
@@ -27,8 +27,8 @@ public class Customer {
         validate();
     }
 
-    public void actiavte(){
-        if (this.address == null || this.address.isBlank()){
+    public void activate(){
+        if (this.address == null){
             throw new RuntimeException("Address is mandatory to activate a customer");
         }
         this.active = true;
@@ -36,5 +36,9 @@ public class Customer {
 
     public void deactivate(){
         this.active = false;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
