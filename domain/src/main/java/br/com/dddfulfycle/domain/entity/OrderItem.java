@@ -10,4 +10,8 @@ public class OrderItem {
         this.nome = nome;
         this.price = price;
     }
+
+    public Double getPrice() {
+        return price;
+    }
 }
