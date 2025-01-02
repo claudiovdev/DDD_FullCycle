@@ -14,12 +14,20 @@ public class Order {
         this.customerId = customerId;
         this.items = items;
         this.total = total();
-        validate();
+        this.validate();
     }
 
     private void validate(){
         if (this.id == null || this.id.isBlank()){
             throw new RuntimeException("Id is required");
+        }
+
+        if (this.customerId == null || this.customerId.isBlank()){
+            throw new RuntimeException("CustumerId is required");
+        }
+
+        if (this.items == null || this.items.isEmpty()){
+            throw new RuntimeException("Itens is required");
         }
     }
 
