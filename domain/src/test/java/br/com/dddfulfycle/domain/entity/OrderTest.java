@@ -17,6 +17,33 @@ class OrderTest {
 
         assertEquals("Id is required", exception.getMessage());
     }
+    @Test
+    void deveLancarErroQuandoCustumerIdEstiverVazio(){
+        RuntimeException exception = assertThrows(RuntimeException.class, ()-> {
+            Order order = new Order("1","", new ArrayList<>());
+        });
+
+        assertEquals("CustumerId is required", exception.getMessage());
+    }
+
+    @Test
+    void deveLancarErroQuandoItensEstiverVazio(){
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+           Order order = new Order("1", "123", new ArrayList<>());
+        });
+        assertEquals("Itens is required", exception.getMessage());
+    }
+
+    @Test
+    void deveCalcularTotal(){
+        OrderItem item1 = new OrderItem("i1","cama",100.00);
+        OrderItem item2 = new OrderItem("i2", "mesa", 200.00);
+        Order order = new Order("01","123", Arrays.asList(item1,item2));
+
+        var total = order.total();
+
+        assertEquals(300.00, total);
+    }
 
     @Test
     void deveLancarErroQuandoCustmerIdEstiverVario(){
@@ -36,16 +63,4 @@ class OrderTest {
         assertEquals("Items are required", exception.getMessage());
     }
 
-    @Test
-    void deveCalcularTotal(){
-
-        var item1 = new OrderItem("1", "Item 1", 100.00);
-        var item2 = new OrderItem("2", "Item 2", 200.00);
-
-        Order order = new Order("123", "123", Arrays.asList(item1,item2));
-
-        assertEquals(300.00, order.total());
-
-
-    }
 }

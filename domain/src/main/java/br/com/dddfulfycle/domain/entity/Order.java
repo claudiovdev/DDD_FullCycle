@@ -14,24 +14,22 @@ public class Order {
         this.customerId = customerId;
         this.items = items;
         this.total = total();
-        validate();
+        this.validate();
     }
 
-    private void validate(){
-        if (this.id == null || this.id.isBlank()){
+    private void validate() {
+        if (this.id == null || this.id.isBlank()) {
             throw new RuntimeException("Id is required");
         }
-        if (this.customerId == null || this.customerId.isBlank()){
+        if (this.customerId == null || this.customerId.isBlank()) {
             throw new RuntimeException("customerId is required");
         }
 
-        if (this.items == null || this.items.size() <= 0){
+        if (this.items == null || this.items.size() <= 0) {
             throw new RuntimeException("Items are required");
         }
     }
-
-
-    public Double total(){
+    public Double total() {
         return this.items.stream().map(OrderItem::getPrice).reduce(0.0, Double::sum);
     }
 
