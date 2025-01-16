@@ -21,6 +21,13 @@ public class Order {
         if (this.id == null || this.id.isBlank()){
             throw new RuntimeException("Id is required");
         }
+        if (this.customerId == null || this.customerId.isBlank()){
+            throw new RuntimeException("customerId is required");
+        }
+
+        if (this.items == null || this.items.size() <= 0){
+            throw new RuntimeException("Items are required");
+        }
     }
 
 
