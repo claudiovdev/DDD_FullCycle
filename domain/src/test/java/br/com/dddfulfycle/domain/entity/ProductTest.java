@@ -29,7 +29,7 @@ class ProductTest {
             Product product = new Product("p1","product 1",-1.0);
         });
 
-        assertEquals("Nome is required", exception.getMessage());
+        assertEquals("Price must be greater than zero", exception.getMessage());
     }
 
     @Test

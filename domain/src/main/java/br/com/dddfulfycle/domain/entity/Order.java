@@ -22,12 +22,18 @@ public class Order {
             throw new RuntimeException("Id is required");
         }
         if (this.customerId == null || this.customerId.isBlank()) {
-            throw new RuntimeException("customerId is required");
+            throw new RuntimeException("CustomerId is required");
         }
 
         if (this.items == null || this.items.size() <= 0) {
             throw new RuntimeException("Items are required");
         }
+
+        this.items.forEach(item ->{
+            if (item.getQuantity() <= 0){
+                throw new RuntimeException("Quantity must be greater than 0");
+            }
+        });
     }
     public Double total() {
         return this.items.stream().map(OrderItem::getPrice).reduce(0.0, Double::sum);

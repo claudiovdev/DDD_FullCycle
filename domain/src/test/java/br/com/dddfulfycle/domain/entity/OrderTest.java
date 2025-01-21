@@ -23,7 +23,7 @@ class OrderTest {
             Order order = new Order("1","", new ArrayList<>());
         });
 
-        assertEquals("CustumerId is required", exception.getMessage());
+        assertEquals("CustomerId is required", exception.getMessage());
     }
 
     @Test
@@ -31,18 +31,18 @@ class OrderTest {
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
            Order order = new Order("1", "123", new ArrayList<>());
         });
-        assertEquals("Itens is required", exception.getMessage());
+        assertEquals("Items are required", exception.getMessage());
     }
 
     @Test
     void deveCalcularTotal(){
-        OrderItem item1 = new OrderItem("i1","cama",100.00);
-        OrderItem item2 = new OrderItem("i2", "mesa", 200.00);
+        OrderItem item1 = new OrderItem("1","123", "Item 1", 100.00,2);
+        OrderItem item2 = new OrderItem("1","123", "Item 1", 200.00,2);
         Order order = new Order("01","123", Arrays.asList(item1,item2));
 
         var total = order.total();
 
-        assertEquals(300.00, total);
+        assertEquals(600.00, total);
     }
 
     @Test
@@ -51,7 +51,7 @@ class OrderTest {
             Order order = new Order("123", "", new ArrayList<>());
         });
 
-        assertEquals("customerId is required", exception.getMessage());
+        assertEquals("CustomerId is required", exception.getMessage());
     }
 
     @Test
@@ -62,5 +62,17 @@ class OrderTest {
 
         assertEquals("Items are required", exception.getMessage());
     }
+
+    @Test
+    void deveLancarErroQuantoQuantidadeDeItemForMenorOuIgualZero(){
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+            OrderItem item1 = new OrderItem("1","123", "Item 1", 100.00,2);
+            OrderItem item2 = new OrderItem("1","123", "Item 1", 200.00,0);
+            Order order = new Order("01","123", Arrays.asList(item1,item2));
+        });
+        assertEquals("Quantity must be greater than 0", exception.getMessage());
+    }
+
+
 
 }

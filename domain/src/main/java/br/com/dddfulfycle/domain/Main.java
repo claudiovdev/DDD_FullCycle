@@ -16,8 +16,8 @@ public class Main {
         customer.activate();
         System.out.println(address);
 
-        OrderItem item1 = new OrderItem("1", "Item 1", 10.0);
-        OrderItem item2 = new OrderItem("2", "Item 2", 15.0);
+        OrderItem item1 = new OrderItem("1","123", "Item 1", 100.00,1);
+        OrderItem item2 = new OrderItem("1","123", "Item 2", 100.00,1);
 
         Order order = new Order("1", "123", Arrays.asList(item1, item2));
 
