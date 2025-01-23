@@ -1,5 +1,6 @@
 package br.com.dddfulfycle.domain.service;
 
+import br.com.dddfulfycle.domain.entity.Customer;
 import br.com.dddfulfycle.domain.entity.Order;
 import br.com.dddfulfycle.domain.entity.OrderItem;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,6 +41,21 @@ class OrderServiceTest {
         Double total = orderService.getTotalDoPedido(orders);
 
         assertEquals(500.00, total);
+    }
+
+    @Test
+    void deveCriarUmaOrdem(){
+
+        var custumer = new Customer("c1", "Claudio");
+        var orderItems = new ArrayList<OrderItem>();
+
+        var orderItem = new OrderItem("i1", "p1", "Item 1", 1000.00, 10);
+        orderItems.add(orderItem);
+
+        var order = orderService.placeOrder(custumer, orderItems);
+
+        assertEquals(5000.00, custumer.getRewards());
+        assertEquals(10000.00, order.total());
     }
 
 

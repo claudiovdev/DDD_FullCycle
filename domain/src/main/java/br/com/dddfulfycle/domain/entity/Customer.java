@@ -2,10 +2,17 @@ package br.com.dddfulfycle.domain.entity;
 
 public class Customer {
     private String id;
+
+    public String getId() {
+        return id;
+    }
+
     private String name;
     private Address address;
 
     private boolean active;
+
+    private Double rewards;
 
     public Customer(String id, String name) {
         this.id = id;
@@ -49,5 +56,16 @@ public class Customer {
 
     public boolean isActive() {
         return this.active;
+    }
+
+    public double getRewards() {
+        return this.rewards;
+    }
+
+    public void addRewards(Double rewards){
+        if (this.rewards == null){
+            this.rewards = 0.0;
+        }
+        this.rewards = this.rewards + rewards;
     }
 }
