@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ddd-fullcycle?createDatabaseIfNotExist=true
+    username: root
+    password: root123
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      jdbc:
+        lob:
+          non-contextual-creation: true
+    properties:
+      hibernate:
+        show_sql: true

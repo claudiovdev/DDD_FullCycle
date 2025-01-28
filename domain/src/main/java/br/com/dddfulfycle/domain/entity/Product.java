@@ -42,4 +42,8 @@ public class Product {
         this.price = newPrice;
         validate();
     }
+
+    public String getId() {
+        return id;
+    }
 }
