@@ -3,10 +3,6 @@ package br.com.dddfulfycle.domain.entity;
 public class Customer {
     private String id;
 
-    public String getId() {
-        return id;
-    }
-
     private String name;
     private Address address;
 
@@ -68,4 +64,18 @@ public class Customer {
         }
         this.rewards = this.rewards + rewards;
     }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public boolean getActive(){
+        return active;
+    }
+
+
 }

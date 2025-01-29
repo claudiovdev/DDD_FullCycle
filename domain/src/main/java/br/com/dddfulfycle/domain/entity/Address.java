@@ -37,4 +37,20 @@ public class Address {
                 ", city='" + city + '\'' +
                 '}';
     }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public String getCity() {
+        return city;
+    }
 }

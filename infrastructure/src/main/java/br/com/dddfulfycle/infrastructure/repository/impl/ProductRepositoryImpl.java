@@ -6,7 +6,9 @@ import br.com.dddfulfycle.infrastructure.model.ProductModel;
 import br.com.dddfulfycle.infrastructure.repository.ProductModelRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class ProductRepositoryImpl implements ProductRepository {
@@ -23,9 +25,13 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public Optional<Product> findById(String id) {
+    public Product findById(String id) {
         var productModel =  productJpaRepository.findById(id).orElseThrow(()-> new RuntimeException("Product not found"));
-        Product product = new Product(productModel.getId(), productModel.getNome(),productModel.getPrice());
-        return Optional.of(product);
+        return new Product(productModel.getId(), productModel.getNome(),productModel.getPrice());
+    }
+
+    @Override
+    public List<Product> findAll() {
+        return  productJpaRepository.findAll().stream().map(productModel -> new Product(productModel.getId(),productModel.getNome(),productModel.getPrice())).collect(Collectors.toList());
     }
 }
