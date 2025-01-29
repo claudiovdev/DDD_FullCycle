@@ -4,6 +4,7 @@ import br.com.dddfulfycle.domain.entity.Product;
 import br.com.dddfulfycle.domain.repository.ProductRepository;
 import br.com.dddfulfycle.infrastructure.model.ProductModel;
 import br.com.dddfulfycle.infrastructure.repository.ProductModelRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

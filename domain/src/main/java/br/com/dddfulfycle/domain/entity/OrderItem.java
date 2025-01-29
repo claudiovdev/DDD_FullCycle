@@ -22,4 +22,16 @@ public class OrderItem {
     public Integer getQuantity() {
         return quantity;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public String getNome() {
+        return nome;
+    }
 }

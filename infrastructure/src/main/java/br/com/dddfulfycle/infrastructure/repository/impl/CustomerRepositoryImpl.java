@@ -5,14 +5,15 @@ import br.com.dddfulfycle.domain.entity.Customer;
 import br.com.dddfulfycle.domain.repository.CustomerRepository;
 import br.com.dddfulfycle.infrastructure.model.CustomerModel;
 import br.com.dddfulfycle.infrastructure.repository.CustomerModelRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@Primary
 public class CustomerRepositoryImpl implements CustomerRepository {
-
 
     private final CustomerModelRepository repository;
 

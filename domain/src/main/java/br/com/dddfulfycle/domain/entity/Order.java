@@ -17,6 +17,7 @@ public class Order {
         this.validate();
     }
 
+
     private void validate() {
         if (this.id == null || this.id.isBlank()) {
             throw new RuntimeException("Id is required");
@@ -39,4 +40,19 @@ public class Order {
         return this.items.stream().map(OrderItem::getPrice).reduce(0.0, Double::sum);
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public List<OrderItem> getItems() {
+        return items;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
 }
