@@ -39,4 +39,36 @@ class CustomerModelRepositoryTest {
         assertNotNull(customerFound);
     }
 
+    @Test
+    void shouldFindAllCustomer(){
+        Customer customer1 = new Customer("1", "João Silva");
+        Address address1 = new Address("Rua das Flores", 456, "01020-300", "Rio de Janeiro");
+        customer1.setAddress(address1);
+        customer1.activate();
+        customer1.addRewards(50.00);
+        repository.save(customer1);
+
+        Customer customer2 = new Customer("4", "Ana Souza");
+        Address address2 = new Address("Avenida Paulista", 500, "01310-900", "São Paulo");
+        customer2.setAddress(address2);
+        customer2.activate();
+        customer2.addRewards(150.75);
+
+        repository.save(customer2);
+
+        Customer customer3 = new Customer("3", "Carlos Santos");
+        Address address3 = new Address("Rua XV de Novembro", 101, "80240-010", "Curitiba");
+        customer3.setAddress(address3);
+        customer3.activate();
+        customer3.addRewards(0.00); // Sem recompensas ainda
+
+        repository.save(customer3);
+
+        var costumers = repository.findAll();
+
+        assertEquals(3, costumers.size());
+
+
+    }
+
 }

@@ -39,4 +39,36 @@ public class CustomerModel {
 
     public CustomerModel() {
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public Double getRewards() {
+        return rewards;
+    }
 }
